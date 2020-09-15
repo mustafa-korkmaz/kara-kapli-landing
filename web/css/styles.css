@@ -2182,3 +2182,11 @@ a:hover.back-to-top {
 	/* end of extra pages */
 }
 /* end of min-width width 1200px */
+
+.special-card {
+	background-color: rgba(245, 245, 245, 0.4) !important;
+}
+
+.no-hover {
+	pointer-events: none;
+}
