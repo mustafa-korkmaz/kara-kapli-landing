@@ -8,6 +8,8 @@
 (function ($) {
     "use strict";
 
+    new WOW().init();
+
     /* Preloader */
     $(window).on('load', function () {
         var preloaderFadeOutTime = 500;
@@ -242,7 +244,7 @@
             },
             success: function (text) {
                 if (text === "success") {
-                    cformSuccess();
+                    $("#submitFormModal").click();
                 } else {
                     cformError();
                     csubmitMSG(false, text);
