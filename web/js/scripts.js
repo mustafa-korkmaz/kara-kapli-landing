@@ -13,6 +13,7 @@
     /* Preloader */
     $(window).on('load', function () {
         var preloaderFadeOutTime = 500;
+
         function hidePreloader() {
             var preloader = $('.spinner-wrapper');
             setTimeout(function () {
@@ -136,7 +137,8 @@
     /* Lightbox - Magnific Popup */
     $('.popup-with-move-anim').magnificPopup({
         type: 'inline',
-        fixedContentPos: false, /* keep it false to avoid html tag shift with margin-right: 17px */
+        fixedContentPos: false,
+        /* keep it false to avoid html tag shift with margin-right: 17px */
         fixedBgPos: true,
         overflowY: 'auto',
         closeBtnInside: true,
@@ -234,16 +236,19 @@
         var name = $("#cname").val();
         var email = $("#cemail").val();
         var message = $("#cmessage").val();
+
+        var parameter = {
+            "message": message,
+            "name": name,
+            "email": email
+        }
         $.ajax({
             type: "POST",
-            url: "https://api.koruq.com/feedback",
-            data: {
-                "message": message,
-                "name": name,
-                "email": email
-            },
-            success: function (text) {
-                if (text === "success") {
+            url: "https://api.koruq.com/customers/feedback",
+            data: JSON.stringify(parameter),
+            contentType: "application/json; charset=utf-8",
+            success: function (res) {
+                if (res.type_text === "Success") {
                     $("#submitFormModal").click();
                 } else {
                     cformError();
