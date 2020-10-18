@@ -244,7 +244,7 @@
         }
         $.ajax({
             type: "POST",
-            url: "https://api.koruq.com/customers/feedback",
+            url: "https://api.koruq.com/feedbacks",
             data: JSON.stringify(parameter),
             contentType: "application/json; charset=utf-8",
             success: function (res) {
